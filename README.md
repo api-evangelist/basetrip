@@ -20,18 +20,46 @@ The Basetrip enables you to differentiate your travel products and improve conve
 
 ## APIs
 
-### Basetrip
-The Basetrip enables you to differentiate your travel products and improve conversion, brand awareness, and customer satisfaction.
+### Basetrip Countries API
+Get all the countries' names, slugs and codes. Use slug or alpha-2 code for a country's details endpoint as a {id} path parameter.
 
-**Human URL:** [ https://www.thebasetrip.com/en/documentation/v3]( https://www.thebasetrip.com/en/documentation/v3)
+**Human URL:** [https://www.thebasetrip.com/en/documentation/v3/countries](https://www.thebasetrip.com/en/documentation/v3/countries)
 
 #### Tags
 
-- API
+- Countries
+- Travel
 
 #### Properties
 
-- [Documentation]( https://www.thebasetrip.com/en/documentation/v3)
+- [Documentation]( https://www.thebasetrip.com/en/documentation/v3/countries)
+### Basetrip Cities API
+Get all the cities from particular country, including their names and slugs. Use a slug or alpha-2 code for a {id} path parameter.
+
+**Human URL:** [https://www.thebasetrip.com/en/documentation/v3/cities](https://www.thebasetrip.com/en/documentation/v3/cities)
+
+#### Tags
+
+- Cities
+- Travel
+
+#### Properties
+
+- [Documentation](https://www.thebasetrip.com/en/documentation/v3/cities)
+### Basetrip Phrases API
+Get all language (travel) phrases for specific languages. Currently supported languages are English, French, German, Italian and Spanish.
+
+**Human URL:** [https://www.thebasetrip.com/en/documentation/v3/phrases](https://www.thebasetrip.com/en/documentation/v3/phrases)
+
+#### Tags
+
+- Phrases
+- Language
+- Travel
+
+#### Properties
+
+- [Documentation]( https://www.thebasetrip.com/en/documentation/v3/phrases)
 
 ## Maintainers
 
