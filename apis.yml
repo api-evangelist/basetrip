@@ -1,26 +1,30 @@
 aid: basetrip
-name: Basetrip
-description: 'Country information API for travel '
-type: Index
-position: Consumer
-access: 3rd-Party
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
-created: '2024-11-13'
-modified: '2024-11-13'
 url: https://raw.githubusercontent.com/api-search/basetrip/refs/heads/main/apis.yml
-specificationVersion: '0.19'
 apis:
   - aid: basetrip:basetrip
     name: Basetrip
-    description: 'Country information API for travel '
-    humanURL: ' https://www.thebasetrip.com/en/documentation/v3'
     tags:
       - API
+    humanURL: ' https://www.thebasetrip.com/en/documentation/v3'
     properties:
-      - type: Documentation
-        url: ' https://www.thebasetrip.com/en/documentation/v3'
+      - url: ' https://www.thebasetrip.com/en/documentation/v3'
+        type: Documentation
+    description: >-
+      The Basetrip enables you to differentiate your travel products and improve
+      conversion, brand awareness, and customer satisfaction.
+name: Basetrip
+tags:
+  - Travel
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+created: '2024-11-13'
+modified: '2024-12-11'
+position: Consumer
+description: >-
+  The Basetrip enables you to differentiate your travel products and improve
+  conversion, brand awareness, and customer satisfaction.
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
+specificationVersion: '0.19'
