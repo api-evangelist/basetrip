@@ -5,8 +5,8 @@ The Basetrip enables you to differentiate your travel products and improve conve
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consumer 
+- **Type:** Contract 
+- **Position:** Consuming 
 - **Access:** 3rd-Party 
 
 ## Tags
@@ -16,7 +16,7 @@ The Basetrip enables you to differentiate your travel products and improve conve
 ## Timestamps
 
 - **Created:** 2024-11-13 
-- **Modified:** 2024-12-11 
+- **Modified:** 2024-12-22 
 
 ## APIs
 
@@ -24,6 +24,7 @@ The Basetrip enables you to differentiate your travel products and improve conve
 Get all the countries' names, slugs and codes. Use slug or alpha-2 code for a country's details endpoint as a {id} path parameter.
 
 **Human URL:** [https://www.thebasetrip.com/en/documentation/v3/countries](https://www.thebasetrip.com/en/documentation/v3/countries)
+r
 
 #### Tags
 
@@ -37,6 +38,7 @@ Get all the countries' names, slugs and codes. Use slug or alpha-2 code for a co
 Get all the cities from particular country, including their names and slugs. Use a slug or alpha-2 code for a {id} path parameter.
 
 **Human URL:** [https://www.thebasetrip.com/en/documentation/v3/cities](https://www.thebasetrip.com/en/documentation/v3/cities)
+r
 
 #### Tags
 
@@ -50,6 +52,7 @@ Get all the cities from particular country, including their names and slugs. Use
 Get all language (travel) phrases for specific languages. Currently supported languages are English, French, German, Italian and Spanish.
 
 **Human URL:** [https://www.thebasetrip.com/en/documentation/v3/phrases](https://www.thebasetrip.com/en/documentation/v3/phrases)
+r
 
 #### Tags
 
