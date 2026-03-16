@@ -45,12 +45,12 @@ type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2024-11-13'
-modified: '2024-12-22'
+modified: '2026-03-16'
 position: Consuming
 description: >-
   The Basetrip enables you to differentiate your travel products and improve
   conversion, brand awareness, and customer satisfaction.
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
 specificationVersion: '0.19'
