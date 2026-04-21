@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-schema/costinfo.json",
+  "title": "CostInfo",
+  "type": "object",
+  "properties": {
+    "country": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "budgetPerDay": {
+      "type": "number",
+      "description": "Budget traveler daily cost in USD"
+    },
+    "midRangePerDay": {
+      "type": "number",
+      "description": "Mid-range daily cost in USD"
+    },
+    "luxuryPerDay": {
+      "type": "number",
+      "description": "Luxury daily cost in USD"
+    },
+    "categories": {
+      "type": "object",
+      "properties": {
+        "accommodation": {
+          "type": "number"
+        },
+        "food": {
+          "type": "number"
+        },
+        "transport": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

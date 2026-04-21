@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/costinfo.json",
+  "title": "CostInfo",
+  "type": "record",
+  "fields": [
+    {
+      "name": "country",
+      "type": "xs:string",
+      "description": ""
+    },
+    {
+      "name": "currency",
+      "type": "xs:string",
+      "description": ""
+    },
+    {
+      "name": "budgetPerDay",
+      "type": "xs:decimal",
+      "description": "Budget traveler daily cost in USD"
+    },
+    {
+      "name": "midRangePerDay",
+      "type": "xs:decimal",
+      "description": "Mid-range daily cost in USD"
+    },
+    {
+      "name": "luxuryPerDay",
+      "type": "xs:decimal",
+      "description": "Luxury daily cost in USD"
+    },
+    {
+      "name": "categories",
+      "type": "xs:complexType",
+      "description": ""
+    }
+  ]
+}

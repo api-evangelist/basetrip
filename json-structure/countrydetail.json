@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/countrydetail.json",
+  "title": "CountryDetail",
+  "type": "record",
+  "fields": [
+    {
+      "name": "capital",
+      "type": "xs:string",
+      "description": "Capital city name"
+    },
+    {
+      "name": "currency",
+      "type": "xs:string",
+      "description": "ISO 4217 currency code"
+    },
+    {
+      "name": "languages",
+      "type": "xs:sequence",
+      "description": "Official languages"
+    },
+    {
+      "name": "population",
+      "type": "xs:integer",
+      "description": "Approximate population"
+    },
+    {
+      "name": "timezone",
+      "type": "xs:string",
+      "description": "Primary timezone"
+    },
+    {
+      "name": "callingCode",
+      "type": "xs:string",
+      "description": "International dialing code"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/phrase.json",
+  "title": "Phrase",
+  "type": "record",
+  "fields": [
+    {
+      "name": "category",
+      "type": "xs:string",
+      "description": "Phrase category (e.g., Greetings, Dining, Transportation)"
+    },
+    {
+      "name": "original",
+      "type": "xs:string",
+      "description": "Phrase in source language"
+    },
+    {
+      "name": "translation",
+      "type": "xs:string",
+      "description": "Phrase in destination language"
+    },
+    {
+      "name": "phonetic",
+      "type": "xs:string",
+      "description": "Phonetic pronunciation guide"
+    }
+  ]
+}

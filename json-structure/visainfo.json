@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/visainfo.json",
+  "title": "VisaInfo",
+  "type": "record",
+  "fields": [
+    {
+      "name": "destination",
+      "type": "xs:string",
+      "description": "Destination country code"
+    },
+    {
+      "name": "passport",
+      "type": "xs:string",
+      "description": "Passport country code"
+    },
+    {
+      "name": "requirement",
+      "type": "xs:string",
+      "description": ""
+    },
+    {
+      "name": "maxStay",
+      "type": "xs:integer",
+      "description": "Maximum stay in days"
+    },
+    {
+      "name": "notes",
+      "type": "xs:string",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Basetrip"
+  description: "Taxonomy for the Basetrip travel intelligence API covering countries, cities, safety, costs, visa, health, and travel phrases."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: basetrip-api
+      label: Basetrip API
+      version: "3.0"
+      baseUrl: https://api.thebasetrip.com/v3
+      status: active
+
+  resources:
+    - name: countries
+      description: Country records with geographic, political, and travel metadata
+      apis: [basetrip-api]
+      actions: [list, get]
+    - name: cities
+      description: City records with geographic and timezone information
+      apis: [basetrip-api]
+      actions: [list, get]
+    - name: phrases
+      description: Travel phrases for country languages
+      apis: [basetrip-api]
+      actions: [list]
+    - name: safety
+      description: Safety ratings and travel advisories
+      apis: [basetrip-api]
+      actions: [get]
+    - name: cost
+      description: Cost of living and travel budget estimates
+      apis: [basetrip-api]
+      actions: [get]
+    - name: visa
+      description: Visa requirements by passport and destination
+      apis: [basetrip-api]
+      actions: [get]
+    - name: health
+      description: Health advisories, vaccination requirements, and medical information
+      apis: [basetrip-api]
+      actions: [get]
+
+  actions:
+    - name: list
+      description: Retrieve a collection of resources
+      methods: [GET]
+      pattern: read
+    - name: get
+      description: Retrieve a specific resource by ID or slug
+      methods: [GET]
+      pattern: read
+
+  authentication:
+    schemes:
+      - name: ApiKey
+        type: apiKey
+        description: X-API-Key header for all requests
+
+capability:
+  workflows:
+    - name: Travel Intelligence
+      file: capabilities/travel-intelligence.yaml
+      description: Embed country, city, safety, cost, visa, and health data into travel platforms
+      apis_combined: [basetrip-api]
+      tool_count: 7
+      personas: [Travel App Developer, Trip Planner, Travel Content Publisher]
+      domains: [Travel, Geography, Safety, Finance]
+
+  personas:
+    - id: travel-app-developer
+      name: Travel App Developer
+      description: Developer building travel booking or trip planning apps
+      workflows: [Travel Intelligence]
+    - id: trip-planner
+      name: Trip Planner
+      description: Individual or business planning international travel
+      workflows: [Travel Intelligence]
+    - id: travel-content-publisher
+      name: Travel Content Publisher
+      description: Content creator embedding destination guides with live data
+      workflows: [Travel Intelligence]
+
+  domains:
+    - name: Travel
+      description: Travel planning, booking, and destination information
+      resources: [countries, cities, phrases]
+      workflows: [Travel Intelligence]
+    - name: Safety
+      description: Travel safety ratings and advisories
+      resources: [safety]
+      workflows: [Travel Intelligence]
+
+  namespaces:
+    - namespace: basetrip-api
+      type: consumed
+    - namespace: basetrip-mcp
+      type: mcp-exposed
+      port: 9080
+
+  binds:
+    - name: BASETRIP_API_KEY
+      description: Basetrip API key for authentication
+      workflows: [Travel Intelligence]
+
+crossReference:
+  - resource: countries
+    operations: [listCountries, getCountry]
+    workflows: [Travel Intelligence]
+    personas: [Travel App Developer, Trip Planner]
+  - resource: visa
+    operations: [getVisaRequirements]
+    workflows: [Travel Intelligence]
+    personas: [Trip Planner, Travel App Developer]
+  - resource: safety
+    operations: [getCountrySafety]
+    workflows: [Travel Intelligence]
+    personas: [Trip Planner, Travel Content Publisher]

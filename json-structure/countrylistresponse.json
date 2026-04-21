@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/countrylistresponse.json",
+  "title": "CountryListResponse",
+  "type": "record",
+  "fields": [
+    {
+      "name": "countries",
+      "type": "xs:sequence",
+      "description": ""
+    },
+    {
+      "name": "count",
+      "type": "xs:integer",
+      "description": "Total number of countries"
+    }
+  ]
+}

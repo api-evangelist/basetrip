@@ -1,0 +1,62 @@
+name: Basetrip API
+description: Shared per-API capability definition for the Basetrip travel intelligence API.
+api: basetrip:basetrip-api
+baseUrl: https://api.thebasetrip.com/v3
+auth:
+  type: apiKey
+  header: X-API-Key
+operations:
+  - operationId: listCountries
+    summary: List Countries
+    method: GET
+    path: /countries
+    description: Get all countries with names, slugs, and codes.
+    tags: [Countries]
+  - operationId: getCountry
+    summary: Get Country
+    method: GET
+    path: /countries/{id}
+    description: Get detailed country information by slug or alpha-2 code.
+    tags: [Countries]
+  - operationId: listCitiesByCountry
+    summary: List Cities By Country
+    method: GET
+    path: /countries/{id}/cities
+    description: Get all cities for a country.
+    tags: [Cities]
+  - operationId: getCity
+    summary: Get City
+    method: GET
+    path: /cities/{id}
+    description: Get detailed city information by slug.
+    tags: [Cities]
+  - operationId: listPhrasesByCountry
+    summary: List Phrases By Country
+    method: GET
+    path: /countries/{id}/phrases
+    description: Get travel phrases for a country's language.
+    tags: [Phrases]
+  - operationId: getCountrySafety
+    summary: Get Country Safety
+    method: GET
+    path: /countries/{id}/safety
+    description: Get safety ratings and advisories for a country.
+    tags: [Safety]
+  - operationId: getCountryCost
+    summary: Get Country Cost
+    method: GET
+    path: /countries/{id}/cost
+    description: Get cost of living and travel budget estimates.
+    tags: [Cost]
+  - operationId: getVisaRequirements
+    summary: Get Visa Requirements
+    method: GET
+    path: /countries/{id}/visa
+    description: Get visa requirements for a destination country.
+    tags: [Visa]
+  - operationId: getCountryHealth
+    summary: Get Country Health
+    method: GET
+    path: /countries/{id}/health
+    description: Get health advisories and vaccination requirements.
+    tags: [Health]

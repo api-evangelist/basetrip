@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/safetyinfo.json",
+  "title": "SafetyInfo",
+  "type": "record",
+  "fields": [
+    {
+      "name": "country",
+      "type": "xs:string",
+      "description": "Country slug"
+    },
+    {
+      "name": "overallRating",
+      "type": "xs:string",
+      "description": ""
+    },
+    {
+      "name": "advisoryLevel",
+      "type": "xs:integer",
+      "description": "Advisory level (1=normal, 4=do not travel)"
+    },
+    {
+      "name": "categories",
+      "type": "xs:complexType",
+      "description": ""
+    },
+    {
+      "name": "notes",
+      "type": "xs:string",
+      "description": "Additional safety notes"
+    }
+  ]
+}

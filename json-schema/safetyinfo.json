@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-schema/safetyinfo.json",
+  "title": "SafetyInfo",
+  "type": "object",
+  "properties": {
+    "country": {
+      "type": "string",
+      "description": "Country slug"
+    },
+    "overallRating": {
+      "type": "string",
+      "enum": [
+        "Safe",
+        "Moderate",
+        "Risky",
+        "High Risk",
+        "Extreme"
+      ]
+    },
+    "advisoryLevel": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Advisory level (1=normal, 4=do not travel)"
+    },
+    "categories": {
+      "type": "object",
+      "properties": {
+        "crime": {
+          "type": "string"
+        },
+        "terrorism": {
+          "type": "string"
+        },
+        "naturalDisasters": {
+          "type": "string"
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional safety notes"
+    }
+  }
+}

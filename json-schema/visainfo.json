@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-schema/visainfo.json",
+  "title": "VisaInfo",
+  "type": "object",
+  "properties": {
+    "destination": {
+      "type": "string",
+      "description": "Destination country code"
+    },
+    "passport": {
+      "type": "string",
+      "description": "Passport country code"
+    },
+    "requirement": {
+      "type": "string",
+      "enum": [
+        "Visa Free",
+        "Visa on Arrival",
+        "e-Visa",
+        "Visa Required",
+        "No Admission"
+      ]
+    },
+    "maxStay": {
+      "type": "integer",
+      "description": "Maximum stay in days"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

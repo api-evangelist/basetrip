@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/citydetail.json",
+  "title": "CityDetail",
+  "type": "record",
+  "fields": [
+    {
+      "name": "population",
+      "type": "xs:integer",
+      "description": ""
+    },
+    {
+      "name": "timezone",
+      "type": "xs:string",
+      "description": ""
+    },
+    {
+      "name": "latitude",
+      "type": "xs:decimal",
+      "description": ""
+    },
+    {
+      "name": "longitude",
+      "type": "xs:decimal",
+      "description": ""
+    }
+  ]
+}

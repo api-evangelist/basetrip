@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/city.json",
+  "title": "City",
+  "type": "record",
+  "fields": [
+    {
+      "name": "name",
+      "type": "xs:string",
+      "description": "City name"
+    },
+    {
+      "name": "slug",
+      "type": "xs:string",
+      "description": "URL-friendly city slug"
+    },
+    {
+      "name": "country",
+      "type": "xs:string",
+      "description": "Country alpha-2 code"
+    }
+  ]
+}

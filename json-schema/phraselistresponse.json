@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-schema/phraselistresponse.json",
+  "title": "PhraseListResponse",
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string",
+      "description": "Destination language code"
+    },
+    "phrases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Phrase"
+      }
+    }
+  }
+}

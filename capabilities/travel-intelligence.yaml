@@ -1,0 +1,44 @@
+name: Travel Intelligence
+description: >-
+  Workflow capability for embedding travel intelligence data into travel apps,
+  booking platforms, and trip planning tools using the Basetrip API.
+version: "1.0"
+apis:
+  - basetrip:basetrip-api
+personas:
+  - Travel App Developer
+  - Trip Planner
+  - Travel Content Publisher
+tools:
+  - name: get_country_info
+    description: Retrieve comprehensive country information including capital, currency, languages, and timezone.
+    operation: getCountry
+    api: basetrip:basetrip-api
+  - name: list_cities
+    description: List all cities for a given country to present destination options.
+    operation: listCitiesByCountry
+    api: basetrip:basetrip-api
+  - name: get_travel_phrases
+    description: Fetch travel phrases for a destination country to help travelers communicate.
+    operation: listPhrasesByCountry
+    api: basetrip:basetrip-api
+  - name: check_safety
+    description: Get current safety ratings and advisories before booking travel.
+    operation: getCountrySafety
+    api: basetrip:basetrip-api
+  - name: estimate_costs
+    description: Retrieve daily budget estimates across budget, mid-range, and luxury tiers.
+    operation: getCountryCost
+    api: basetrip:basetrip-api
+  - name: check_visa_requirements
+    description: Check visa requirements for a traveler's passport and destination country.
+    operation: getVisaRequirements
+    api: basetrip:basetrip-api
+  - name: get_health_advisories
+    description: Retrieve vaccination requirements and health risks for destination countries.
+    operation: getCountryHealth
+    api: basetrip:basetrip-api
+mcp:
+  adapter: basetrip-mcp
+  namespace: basetrip-api
+  port: 9080

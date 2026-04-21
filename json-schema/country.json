@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-schema/country.json",
+  "title": "Country",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Country name in English"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly country slug"
+    },
+    "code": {
+      "type": "string",
+      "description": "ISO alpha-2 country code"
+    },
+    "continent": {
+      "type": "string",
+      "description": "Continent name"
+    }
+  },
+  "required": [
+    "name",
+    "slug",
+    "code"
+  ]
+}

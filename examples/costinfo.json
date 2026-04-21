@@ -1,0 +1,7 @@
+{
+  "country": "example",
+  "currency": "example",
+  "budgetPerDay": 0.0,
+  "midRangePerDay": 0.0,
+  "luxuryPerDay": 0.0
+}

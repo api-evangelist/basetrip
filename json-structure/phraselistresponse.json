@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/phraselistresponse.json",
+  "title": "PhraseListResponse",
+  "type": "record",
+  "fields": [
+    {
+      "name": "language",
+      "type": "xs:string",
+      "description": "Destination language code"
+    },
+    {
+      "name": "phrases",
+      "type": "xs:sequence",
+      "description": ""
+    }
+  ]
+}

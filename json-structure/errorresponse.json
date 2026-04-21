@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/errorresponse.json",
+  "title": "ErrorResponse",
+  "type": "record",
+  "fields": [
+    {
+      "name": "error",
+      "type": "xs:string",
+      "description": ""
+    },
+    {
+      "name": "message",
+      "type": "xs:string",
+      "description": ""
+    },
+    {
+      "name": "statusCode",
+      "type": "xs:integer",
+      "description": ""
+    }
+  ]
+}

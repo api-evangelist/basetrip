@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/country.json",
+  "title": "Country",
+  "type": "record",
+  "fields": [
+    {
+      "name": "name",
+      "type": "xs:string",
+      "description": "Country name in English"
+    },
+    {
+      "name": "slug",
+      "type": "xs:string",
+      "description": "URL-friendly country slug"
+    },
+    {
+      "name": "code",
+      "type": "xs:string",
+      "description": "ISO alpha-2 country code"
+    },
+    {
+      "name": "continent",
+      "type": "xs:string",
+      "description": "Continent name"
+    }
+  ]
+}

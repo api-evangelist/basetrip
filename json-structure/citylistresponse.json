@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-structure/citylistresponse.json",
+  "title": "CityListResponse",
+  "type": "record",
+  "fields": [
+    {
+      "name": "cities",
+      "type": "xs:sequence",
+      "description": ""
+    },
+    {
+      "name": "count",
+      "type": "xs:integer",
+      "description": ""
+    }
+  ]
+}

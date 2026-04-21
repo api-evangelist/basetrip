@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-schema/healthinfo.json",
+  "title": "HealthInfo",
+  "type": "object",
+  "properties": {
+    "country": {
+      "type": "string"
+    },
+    "vaccinations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "requirement": {
+            "type": "string",
+            "enum": [
+              "Required",
+              "Recommended",
+              "Optional"
+            ]
+          }
+        }
+      }
+    },
+    "healthRisks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "drinkingWater": {
+      "type": "string",
+      "enum": [
+        "Safe",
+        "Unsafe",
+        "Boil Advisories"
+      ]
+    },
+    "medicalFacilities": {
+      "type": "string",
+      "enum": [
+        "Excellent",
+        "Good",
+        "Limited",
+        "Very Limited"
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/json-schema/city.json",
+  "title": "City",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "City name"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly city slug"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country alpha-2 code"
+    }
+  },
+  "required": [
+    "name",
+    "slug"
+  ]
+}
