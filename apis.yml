@@ -15,9 +15,10 @@ tags:
   - Travel
   - Visa
 type: Contract
+x-type: company
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2024-11-13'
-modified: '2026-04-19'
+modified: '2026-04-21'
 specificationVersion: '0.19'
 apis:
   - aid: basetrip:basetrip-api
