@@ -102,6 +102,11 @@ common:
       - name: TripAdvisor
       - name: Skyscanner
       - name: Expedia
+  - type: Integrations
+    url: https://www.thebasetrip.com/integrations
+integrations:
+  - name: Sockets & plugs - Type A
+  - name: Sockets & plugs - Type B
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
