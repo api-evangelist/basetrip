@@ -14,8 +14,8 @@ tags:
   - Safety
   - Travel
   - Visa
-type: Contract
-x-type: company
+kind: contract
+kind: company
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2024-11-13'
 modified: '2026-04-21'
@@ -62,7 +62,7 @@ common:
     url: vocabulary/basetrip-vocabulary.yaml
   - type: NaftikoCapability
     url: capabilities/travel-intelligence.yaml
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/basetrip-context.jsonld
   - name: Features
     type: Features
