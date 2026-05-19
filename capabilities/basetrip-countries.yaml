@@ -1,0 +1,114 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Basetrip API — Countries
+  description: 'Basetrip API — Countries. 2 operations. Lead operation: List Countries. Self-contained Naftiko capability
+    covering one Basetrip business surface.'
+  tags:
+  - Basetrip
+  - Countries
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    BASETRIP_API_KEY: BASETRIP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: basetrip-countries
+    baseUri: https://api.thebasetrip.com/v3
+    description: Basetrip API — Countries business capability. Self-contained, no shared references.
+    resources:
+    - name: countries
+      path: /countries
+      operations:
+      - name: listcountries
+        method: GET
+        description: List Countries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: countries-id
+      path: /countries/{id}
+      operations:
+      - name: getcountry
+        method: GET
+        description: Get Country
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Country slug or alpha-2 code (e.g., "france" or "FR")
+          required: true
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.BASETRIP_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: basetrip-countries-rest
+    port: 8080
+    description: REST adapter for Basetrip API — Countries. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/countries
+      name: countries
+      description: REST surface for countries.
+      operations:
+      - method: GET
+        name: listcountries
+        description: List Countries
+        call: basetrip-countries.listcountries
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/countries/{id}
+      name: countries-id
+      description: REST surface for countries-id.
+      operations:
+      - method: GET
+        name: getcountry
+        description: Get Country
+        call: basetrip-countries.getcountry
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: basetrip-countries-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Basetrip API — Countries. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-countries
+      description: List Countries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: basetrip-countries.listcountries
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-country
+      description: Get Country
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: basetrip-countries.getcountry
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
