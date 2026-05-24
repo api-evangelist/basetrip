@@ -113,6 +113,8 @@ common:
   - name: Expedia
 - type: Integrations
   url: https://www.thebasetrip.com/integrations
+- type: LLMsTxt
+  url: https://api.thebasetrip.com/llms.txt
 integrations:
 - name: Sockets & plugs - Type A
 - name: Sockets & plugs - Type B
