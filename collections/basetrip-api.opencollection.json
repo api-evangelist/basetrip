@@ -1,0 +1,249 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Basetrip API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Countries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries"
+          },
+          "docs": "Get all countries with their names, slugs, and alpha-2 codes."
+        },
+        {
+          "info": {
+            "name": "Get Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Country slug or alpha-2 code (e.g., \"france\" or \"FR\")"
+              }
+            ]
+          },
+          "docs": "Get detailed information for a specific country by slug or alpha-2 code."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Cities By Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries/:id/cities",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Country slug or alpha-2 code"
+              }
+            ]
+          },
+          "docs": "Get all cities for a specific country including their names and slugs."
+        },
+        {
+          "info": {
+            "name": "Get City",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/cities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "City slug"
+              }
+            ]
+          },
+          "docs": "Get detailed information for a specific city by slug."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Phrases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Phrases By Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries/:id/phrases",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Country slug or alpha-2 code"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Source language for translations (en, fr, de, it, es)"
+              }
+            ]
+          },
+          "docs": "Get travel phrases for the primary language of a country."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Safety",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Country Safety",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries/:id/safety",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Country slug or alpha-2 code"
+              }
+            ]
+          },
+          "docs": "Get safety ratings and travel advisories for a country."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cost",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Country Cost",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries/:id/cost",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Country slug or alpha-2 code"
+              }
+            ]
+          },
+          "docs": "Get cost of living and travel budget estimates for a country."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Visa",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Visa Requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries/:id/visa",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Destination country slug or alpha-2 code"
+              },
+              {
+                "name": "passport",
+                "value": "",
+                "type": "query",
+                "description": "Passport country alpha-2 code"
+              }
+            ]
+          },
+          "docs": "Get visa requirements for a destination country based on passport country."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Country Health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries/:id/health",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Country slug or alpha-2 code"
+              }
+            ]
+          },
+          "docs": "Get health advisories, vaccination requirements, and medical information for a country."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
