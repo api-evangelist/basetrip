@@ -50,7 +50,7 @@ common:
   - type: Documentation
     url: https://www.thebasetrip.com/en/documentation/v3
     name: Basetrip API Documentation
-  - type: SignUp
+  - type: Signup
     url: https://www.thebasetrip.com/en/sign_up
     name: Sign Up
   - type: Pricing
@@ -102,7 +102,7 @@ common:
       - name: Expedia
   - type: Integrations
     url: https://www.thebasetrip.com/integrations
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://api.thebasetrip.com/llms.txt
 integrations:
   - name: Sockets & plugs - Type A
