@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.thebasetrip.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 15 01:12:35 2026 GMT
+  hsts: false
+- host: api.thebasetrip.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 15 00:02:42 2026 GMT
+  hsts: false
+domains:
+- domain: thebasetrip.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false

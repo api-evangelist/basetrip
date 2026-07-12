@@ -42,6 +42,10 @@ apis:
       ratings, visa requirements, cost estimates, and health advisories. Uses API key authentication via X-API-Key
       header.
 common:
+  - type: DomainSecurity
+    url: security/basetrip-domain-security.yml
+  - type: Authentication
+    url: authentication/basetrip-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/the-basetrip
   - type: Website
