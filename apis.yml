@@ -42,6 +42,8 @@ apis:
       ratings, visa requirements, cost estimates, and health advisories. Uses API key authentication via X-API-Key
       header.
 common:
+  - type: AgenticAccess
+    url: agentic-access/basetrip-agentic-access.yml
   - type: DomainSecurity
     url: security/basetrip-domain-security.yml
   - type: Authentication
