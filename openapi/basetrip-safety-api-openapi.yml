@@ -1,0 +1,94 @@
+openapi: 3.0.3
+info:
+  title: Basetrip Cities Safety API
+  description: The Basetrip API provides travel intelligence data including country and city information, travel phrases, safety ratings, visa requirements, cost of living data, and health advisories. Designed to help travel platforms differentiate their products and improve traveler experiences.
+  version: 3.0.0
+  contact:
+    name: Basetrip Support
+    url: https://www.thebasetrip.com/en/documentation/v3
+  termsOfService: https://www.thebasetrip.com/en/terms
+servers:
+- url: https://api.thebasetrip.com/v3
+  description: Basetrip API v3
+security:
+- ApiKeyAuth: []
+tags:
+- name: Safety
+paths:
+  /countries/{id}/safety:
+    get:
+      operationId: getCountrySafety
+      summary: Get Country Safety
+      description: Get safety ratings and travel advisories for a country.
+      tags:
+      - Safety
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Country slug or alpha-2 code
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Safety information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SafetyInfo'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
+    SafetyInfo:
+      type: object
+      properties:
+        country:
+          type: string
+          description: Country slug
+        overallRating:
+          type: string
+          enum:
+          - Safe
+          - Moderate
+          - Risky
+          - High Risk
+          - Extreme
+        advisoryLevel:
+          type: integer
+          minimum: 1
+          maximum: 4
+          description: Advisory level (1=normal, 4=do not travel)
+        categories:
+          type: object
+          properties:
+            crime:
+              type: string
+            terrorism:
+              type: string
+            naturalDisasters:
+              type: string
+        notes:
+          type: string
+          description: Additional safety notes
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key

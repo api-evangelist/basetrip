@@ -1,0 +1,125 @@
+openapi: 3.0.3
+info:
+  title: Basetrip Cities API
+  description: The Basetrip API provides travel intelligence data including country and city information, travel phrases, safety ratings, visa requirements, cost of living data, and health advisories. Designed to help travel platforms differentiate their products and improve traveler experiences.
+  version: 3.0.0
+  contact:
+    name: Basetrip Support
+    url: https://www.thebasetrip.com/en/documentation/v3
+  termsOfService: https://www.thebasetrip.com/en/terms
+servers:
+- url: https://api.thebasetrip.com/v3
+  description: Basetrip API v3
+security:
+- ApiKeyAuth: []
+tags:
+- name: Cities
+paths:
+  /countries/{id}/cities:
+    get:
+      operationId: listCitiesByCountry
+      summary: List Cities By Country
+      description: Get all cities for a specific country including their names and slugs.
+      tags:
+      - Cities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Country slug or alpha-2 code
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of cities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CityListResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /cities/{id}:
+    get:
+      operationId: getCity
+      summary: Get City
+      description: Get detailed information for a specific city by slug.
+      tags:
+      - Cities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: City slug
+        schema:
+          type: string
+      responses:
+        '200':
+          description: City details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CityDetail'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    CityDetail:
+      allOf:
+      - $ref: '#/components/schemas/City'
+      - type: object
+        properties:
+          population:
+            type: integer
+          timezone:
+            type: string
+          latitude:
+            type: number
+            format: double
+          longitude:
+            type: number
+            format: double
+    City:
+      type: object
+      properties:
+        name:
+          type: string
+          description: City name
+        slug:
+          type: string
+          description: URL-friendly city slug
+        country:
+          type: string
+          description: Country alpha-2 code
+      required:
+      - name
+      - slug
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
+    CityListResponse:
+      type: object
+      properties:
+        cities:
+          type: array
+          items:
+            $ref: '#/components/schemas/City'
+        count:
+          type: integer
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key

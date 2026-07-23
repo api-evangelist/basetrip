@@ -1,0 +1,139 @@
+openapi: 3.0.3
+info:
+  title: Basetrip Cities Countries API
+  description: The Basetrip API provides travel intelligence data including country and city information, travel phrases, safety ratings, visa requirements, cost of living data, and health advisories. Designed to help travel platforms differentiate their products and improve traveler experiences.
+  version: 3.0.0
+  contact:
+    name: Basetrip Support
+    url: https://www.thebasetrip.com/en/documentation/v3
+  termsOfService: https://www.thebasetrip.com/en/terms
+servers:
+- url: https://api.thebasetrip.com/v3
+  description: Basetrip API v3
+security:
+- ApiKeyAuth: []
+tags:
+- name: Countries
+paths:
+  /countries:
+    get:
+      operationId: listCountries
+      summary: List Countries
+      description: Get all countries with their names, slugs, and alpha-2 codes.
+      tags:
+      - Countries
+      responses:
+        '200':
+          description: List of countries
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /countries/{id}:
+    get:
+      operationId: getCountry
+      summary: Get Country
+      description: Get detailed information for a specific country by slug or alpha-2 code.
+      tags:
+      - Countries
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Country slug or alpha-2 code (e.g., "france" or "FR")
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Country details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryDetail'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid or missing API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Country name in English
+        slug:
+          type: string
+          description: URL-friendly country slug
+        code:
+          type: string
+          description: ISO alpha-2 country code
+        continent:
+          type: string
+          description: Continent name
+      required:
+      - name
+      - slug
+      - code
+    CountryDetail:
+      allOf:
+      - $ref: '#/components/schemas/Country'
+      - type: object
+        properties:
+          capital:
+            type: string
+            description: Capital city name
+          currency:
+            type: string
+            description: ISO 4217 currency code
+          languages:
+            type: array
+            items:
+              type: string
+            description: Official languages
+          population:
+            type: integer
+            description: Approximate population
+          timezone:
+            type: string
+            description: Primary timezone
+          callingCode:
+            type: string
+            description: International dialing code
+    CountryListResponse:
+      type: object
+      properties:
+        countries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        count:
+          type: integer
+          description: Total number of countries
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key

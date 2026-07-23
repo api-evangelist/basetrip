@@ -1,0 +1,91 @@
+openapi: 3.0.3
+info:
+  title: Basetrip Cities Visa API
+  description: The Basetrip API provides travel intelligence data including country and city information, travel phrases, safety ratings, visa requirements, cost of living data, and health advisories. Designed to help travel platforms differentiate their products and improve traveler experiences.
+  version: 3.0.0
+  contact:
+    name: Basetrip Support
+    url: https://www.thebasetrip.com/en/documentation/v3
+  termsOfService: https://www.thebasetrip.com/en/terms
+servers:
+- url: https://api.thebasetrip.com/v3
+  description: Basetrip API v3
+security:
+- ApiKeyAuth: []
+tags:
+- name: Visa
+paths:
+  /countries/{id}/visa:
+    get:
+      operationId: getVisaRequirements
+      summary: Get Visa Requirements
+      description: Get visa requirements for a destination country based on passport country.
+      tags:
+      - Visa
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Destination country slug or alpha-2 code
+        schema:
+          type: string
+      - name: passport
+        in: query
+        required: true
+        description: Passport country alpha-2 code
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Visa requirements
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisaInfo'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
+    VisaInfo:
+      type: object
+      properties:
+        destination:
+          type: string
+          description: Destination country code
+        passport:
+          type: string
+          description: Passport country code
+        requirement:
+          type: string
+          enum:
+          - Visa Free
+          - Visa on Arrival
+          - e-Visa
+          - Visa Required
+          - No Admission
+        maxStay:
+          type: integer
+          description: Maximum stay in days
+        notes:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
