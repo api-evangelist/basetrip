@@ -14,33 +14,108 @@ tags:
   - Travel
   - Visa
 kind: company
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/basetrip.png
 created: '2024-11-13'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: basetrip:basetrip-api
-    name: Basetrip API
-    tags:
-      - Cities
-      - Countries
-      - Health
-      - Phrases
-      - Safety
-      - Travel
-      - Visa
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.thebasetrip.com/v3
-    humanURL: https://www.thebasetrip.com/en/documentation/v3
-    properties:
-      - url: https://www.thebasetrip.com/en/documentation/v3
-        type: Documentation
-      - url: openapi/basetrip-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Basetrip API provides travel intelligence data including country details, city lists, travel phrases, safety
-      ratings, visa requirements, cost estimates, and health advisories. Uses API key authentication via X-API-Key
-      header.
+- aid: basetrip:basetrip-cities-api
+  name: Basetrip Cities API
+  description: The Cities API from Basetrip — 2 operation(s) for cities.
+  humanURL: https://www.thebasetrip.com/en/documentation/v3
+  baseURL: https://api.thebasetrip.com/v3
+  tags:
+  - Cities
+  properties:
+  - type: OpenAPI
+    url: openapi/basetrip-cities-api-openapi.yml
+  - type: Documentation
+    url: https://www.thebasetrip.com/en/documentation/v3
+- aid: basetrip:basetrip-cost-api
+  name: Basetrip Cost API
+  description: The Cost API from Basetrip — 1 operation(s) for cost.
+  humanURL: https://www.thebasetrip.com/en/documentation/v3
+  baseURL: https://api.thebasetrip.com/v3
+  tags:
+  - Cost
+  properties:
+  - type: OpenAPI
+    url: openapi/basetrip-cost-api-openapi.yml
+  - type: Documentation
+    url: https://www.thebasetrip.com/en/documentation/v3
+- aid: basetrip:basetrip-countries-api
+  name: Basetrip Countries API
+  description: The Countries API from Basetrip — 2 operation(s) for countries.
+  humanURL: https://www.thebasetrip.com/en/documentation/v3
+  baseURL: https://api.thebasetrip.com/v3
+  tags:
+  - Countries
+  properties:
+  - type: OpenAPI
+    url: openapi/basetrip-countries-api-openapi.yml
+  - type: Documentation
+    url: https://www.thebasetrip.com/en/documentation/v3
+- aid: basetrip:basetrip-health-api
+  name: Basetrip Health API
+  description: The Health API from Basetrip — 1 operation(s) for health.
+  humanURL: https://www.thebasetrip.com/en/documentation/v3
+  baseURL: https://api.thebasetrip.com/v3
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/basetrip-health-api-openapi.yml
+  - type: Documentation
+    url: https://www.thebasetrip.com/en/documentation/v3
+- aid: basetrip:basetrip-phrases-api
+  name: Basetrip Phrases API
+  description: The Phrases API from Basetrip — 1 operation(s) for phrases.
+  humanURL: https://www.thebasetrip.com/en/documentation/v3
+  baseURL: https://api.thebasetrip.com/v3
+  tags:
+  - Phrases
+  properties:
+  - type: OpenAPI
+    url: openapi/basetrip-phrases-api-openapi.yml
+  - type: Documentation
+    url: https://www.thebasetrip.com/en/documentation/v3
+- aid: basetrip:basetrip-safety-api
+  name: Basetrip Safety API
+  description: The Safety API from Basetrip — 1 operation(s) for safety.
+  humanURL: https://www.thebasetrip.com/en/documentation/v3
+  baseURL: https://api.thebasetrip.com/v3
+  tags:
+  - Safety
+  properties:
+  - type: OpenAPI
+    url: openapi/basetrip-safety-api-openapi.yml
+  - type: Documentation
+    url: https://www.thebasetrip.com/en/documentation/v3
+- aid: basetrip:basetrip-visa-api
+  name: Basetrip Visa API
+  description: The Visa API from Basetrip — 1 operation(s) for visa.
+  humanURL: https://www.thebasetrip.com/en/documentation/v3
+  baseURL: https://api.thebasetrip.com/v3
+  tags:
+  - Visa
+  properties:
+  - type: OpenAPI
+    url: openapi/basetrip-visa-api-openapi.yml
+  - type: Documentation
+    url: https://www.thebasetrip.com/en/documentation/v3
 common:
   - type: AgenticAccess
     url: agentic-access/basetrip-agentic-access.yml
