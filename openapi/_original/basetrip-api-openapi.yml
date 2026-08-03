@@ -1,0 +1,472 @@
+openapi: 3.0.3
+info:
+  title: Basetrip API
+  description: >-
+    The Basetrip API provides travel intelligence data including country and city
+    information, travel phrases, safety ratings, visa requirements, cost of living
+    data, and health advisories. Designed to help travel platforms differentiate
+    their products and improve traveler experiences.
+  version: 3.0.0
+  contact:
+    name: Basetrip Support
+    url: https://www.thebasetrip.com/en/documentation/v3
+  termsOfService: https://www.thebasetrip.com/en/terms
+servers:
+  - url: https://api.thebasetrip.com/v3
+    description: Basetrip API v3
+security:
+  - ApiKeyAuth: []
+paths:
+  /countries:
+    get:
+      operationId: listCountries
+      summary: List Countries
+      description: Get all countries with their names, slugs, and alpha-2 codes.
+      tags:
+        - Countries
+      responses:
+        '200':
+          description: List of countries
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /countries/{id}:
+    get:
+      operationId: getCountry
+      summary: Get Country
+      description: Get detailed information for a specific country by slug or alpha-2 code.
+      tags:
+        - Countries
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Country slug or alpha-2 code (e.g., "france" or "FR")
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Country details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryDetail'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /countries/{id}/cities:
+    get:
+      operationId: listCitiesByCountry
+      summary: List Cities By Country
+      description: Get all cities for a specific country including their names and slugs.
+      tags:
+        - Cities
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Country slug or alpha-2 code
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of cities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CityListResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /cities/{id}:
+    get:
+      operationId: getCity
+      summary: Get City
+      description: Get detailed information for a specific city by slug.
+      tags:
+        - Cities
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: City slug
+          schema:
+            type: string
+      responses:
+        '200':
+          description: City details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CityDetail'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /countries/{id}/phrases:
+    get:
+      operationId: listPhrasesByCountry
+      summary: List Phrases By Country
+      description: Get travel phrases for the primary language of a country.
+      tags:
+        - Phrases
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Country slug or alpha-2 code
+          schema:
+            type: string
+        - name: language
+          in: query
+          description: Source language for translations (en, fr, de, it, es)
+          schema:
+            type: string
+            enum: [en, fr, de, it, es]
+            default: en
+      responses:
+        '200':
+          description: Travel phrases
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhraseListResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /countries/{id}/safety:
+    get:
+      operationId: getCountrySafety
+      summary: Get Country Safety
+      description: Get safety ratings and travel advisories for a country.
+      tags:
+        - Safety
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Country slug or alpha-2 code
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Safety information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SafetyInfo'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /countries/{id}/cost:
+    get:
+      operationId: getCountryCost
+      summary: Get Country Cost
+      description: Get cost of living and travel budget estimates for a country.
+      tags:
+        - Cost
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Country slug or alpha-2 code
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cost information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostInfo'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /countries/{id}/visa:
+    get:
+      operationId: getVisaRequirements
+      summary: Get Visa Requirements
+      description: Get visa requirements for a destination country based on passport country.
+      tags:
+        - Visa
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Destination country slug or alpha-2 code
+          schema:
+            type: string
+        - name: passport
+          in: query
+          required: true
+          description: Passport country alpha-2 code
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Visa requirements
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisaInfo'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /countries/{id}/health:
+    get:
+      operationId: getCountryHealth
+      summary: Get Country Health
+      description: Get health advisories, vaccination requirements, and medical information for a country.
+      tags:
+        - Health
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Country slug or alpha-2 code
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Health information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthInfo'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  responses:
+    Unauthorized:
+      description: Invalid or missing API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Country name in English
+        slug:
+          type: string
+          description: URL-friendly country slug
+        code:
+          type: string
+          description: ISO alpha-2 country code
+        continent:
+          type: string
+          description: Continent name
+      required:
+        - name
+        - slug
+        - code
+    CountryListResponse:
+      type: object
+      properties:
+        countries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        count:
+          type: integer
+          description: Total number of countries
+    CountryDetail:
+      allOf:
+        - $ref: '#/components/schemas/Country'
+        - type: object
+          properties:
+            capital:
+              type: string
+              description: Capital city name
+            currency:
+              type: string
+              description: ISO 4217 currency code
+            languages:
+              type: array
+              items:
+                type: string
+              description: Official languages
+            population:
+              type: integer
+              description: Approximate population
+            timezone:
+              type: string
+              description: Primary timezone
+            callingCode:
+              type: string
+              description: International dialing code
+    City:
+      type: object
+      properties:
+        name:
+          type: string
+          description: City name
+        slug:
+          type: string
+          description: URL-friendly city slug
+        country:
+          type: string
+          description: Country alpha-2 code
+      required:
+        - name
+        - slug
+    CityListResponse:
+      type: object
+      properties:
+        cities:
+          type: array
+          items:
+            $ref: '#/components/schemas/City'
+        count:
+          type: integer
+    CityDetail:
+      allOf:
+        - $ref: '#/components/schemas/City'
+        - type: object
+          properties:
+            population:
+              type: integer
+            timezone:
+              type: string
+            latitude:
+              type: number
+              format: double
+            longitude:
+              type: number
+              format: double
+    Phrase:
+      type: object
+      properties:
+        category:
+          type: string
+          description: Phrase category (e.g., Greetings, Dining, Transportation)
+        original:
+          type: string
+          description: Phrase in source language
+        translation:
+          type: string
+          description: Phrase in destination language
+        phonetic:
+          type: string
+          description: Phonetic pronunciation guide
+    PhraseListResponse:
+      type: object
+      properties:
+        language:
+          type: string
+          description: Destination language code
+        phrases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Phrase'
+    SafetyInfo:
+      type: object
+      properties:
+        country:
+          type: string
+          description: Country slug
+        overallRating:
+          type: string
+          enum: [Safe, Moderate, Risky, High Risk, Extreme]
+        advisoryLevel:
+          type: integer
+          minimum: 1
+          maximum: 4
+          description: Advisory level (1=normal, 4=do not travel)
+        categories:
+          type: object
+          properties:
+            crime:
+              type: string
+            terrorism:
+              type: string
+            naturalDisasters:
+              type: string
+        notes:
+          type: string
+          description: Additional safety notes
+    CostInfo:
+      type: object
+      properties:
+        country:
+          type: string
+        currency:
+          type: string
+        budgetPerDay:
+          type: number
+          description: Budget traveler daily cost in USD
+        midRangePerDay:
+          type: number
+          description: Mid-range daily cost in USD
+        luxuryPerDay:
+          type: number
+          description: Luxury daily cost in USD
+        categories:
+          type: object
+          properties:
+            accommodation:
+              type: number
+            food:
+              type: number
+            transport:
+              type: number
+    VisaInfo:
+      type: object
+      properties:
+        destination:
+          type: string
+          description: Destination country code
+        passport:
+          type: string
+          description: Passport country code
+        requirement:
+          type: string
+          enum: [Visa Free, Visa on Arrival, e-Visa, Visa Required, No Admission]
+        maxStay:
+          type: integer
+          description: Maximum stay in days
+        notes:
+          type: string
+    HealthInfo:
+      type: object
+      properties:
+        country:
+          type: string
+        vaccinations:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              requirement:
+                type: string
+                enum: [Required, Recommended, Optional]
+        healthRisks:
+          type: array
+          items:
+            type: string
+        drinkingWater:
+          type: string
+          enum: [Safe, Unsafe, Boil Advisories]
+        medicalFacilities:
+          type: string
+          enum: [Excellent, Good, Limited, Very Limited]
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer

@@ -1,0 +1,26 @@
+{
+  "provider": "basetrip",
+  "sources": [
+    "basetrip-cities-api-openapi.yml",
+    "basetrip-cost-api-openapi.yml",
+    "basetrip-countries-api-openapi.yml",
+    "basetrip-health-api-openapi.yml",
+    "basetrip-phrases-api-openapi.yml",
+    "basetrip-safety-api-openapi.yml",
+    "basetrip-visa-api-openapi.yml"
+  ],
+  "outputs": [
+    "basetrip-cities-api-openapi.yml",
+    "basetrip-cost-api-openapi.yml",
+    "basetrip-countries-api-openapi.yml",
+    "basetrip-health-api-openapi.yml",
+    "basetrip-phrases-api-openapi.yml",
+    "basetrip-safety-api-openapi.yml",
+    "basetrip-visa-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
