@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Basetrip Cities Health API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Country Health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries/:id/health",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Country slug or alpha-2 code"
+              }
+            ]
+          },
+          "docs": "Get health advisories, vaccination requirements, and medical information for a country."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

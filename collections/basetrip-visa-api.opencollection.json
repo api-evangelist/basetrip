@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Basetrip Cities Visa API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Visa",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Visa Requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries/:id/visa",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Destination country slug or alpha-2 code"
+              },
+              {
+                "name": "passport",
+                "value": "",
+                "type": "query",
+                "description": "Passport country alpha-2 code"
+              }
+            ]
+          },
+          "docs": "Get visa requirements for a destination country based on passport country."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

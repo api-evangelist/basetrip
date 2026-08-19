@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Basetrip Cities Countries API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Countries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries"
+          },
+          "docs": "Get all countries with their names, slugs, and alpha-2 codes."
+        },
+        {
+          "info": {
+            "name": "Get Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thebasetrip.com/v3/countries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Country slug or alpha-2 code (e.g., \"france\" or \"FR\")"
+              }
+            ]
+          },
+          "docs": "Get detailed information for a specific country by slug or alpha-2 code."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
