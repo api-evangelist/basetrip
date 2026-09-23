@@ -1,13 +1,7 @@
 {
   "provider": "basetrip",
   "sources": [
-    "basetrip-cities-api-openapi.yml",
-    "basetrip-cost-api-openapi.yml",
-    "basetrip-countries-api-openapi.yml",
-    "basetrip-health-api-openapi.yml",
-    "basetrip-phrases-api-openapi.yml",
-    "basetrip-safety-api-openapi.yml",
-    "basetrip-visa-api-openapi.yml"
+    "_original/basetrip-api-openapi.yml"
   ],
   "outputs": [
     "basetrip-cities-api-openapi.yml",
@@ -21,6 +15,25 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "basetrip-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "basetrip-api-openapi.yml: declared missing tag: Cities",
+    "basetrip-api-openapi.yml: declared missing tag: Cost",
+    "basetrip-api-openapi.yml: declared missing tag: Countries",
+    "basetrip-api-openapi.yml: declared missing tag: Health",
+    "basetrip-api-openapi.yml: declared missing tag: Phrases",
+    "basetrip-api-openapi.yml: declared missing tag: Safety",
+    "basetrip-api-openapi.yml: declared missing tag: Visa",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "basetrip-cities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "basetrip-cost-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "basetrip-countries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "basetrip-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "basetrip-phrases-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "basetrip-safety-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "basetrip-visa-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

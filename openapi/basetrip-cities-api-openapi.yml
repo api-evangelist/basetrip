@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Basetrip Cities API
   description: The Basetrip API provides travel intelligence data including country and city information, travel phrases, safety ratings, visa requirements, cost of living data, and health advisories. Designed to help travel platforms differentiate their products and improve traveler experiences.
@@ -62,29 +62,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    CityDetail:
-      allOf:
-      - $ref: '#/components/schemas/City'
-      - type: object
-        properties:
-          population:
-            type: integer
-          timezone:
-            type: string
-          latitude:
-            type: number
-            format: double
-          longitude:
-            type: number
-            format: double
     City:
       type: object
       properties:
@@ -100,15 +78,21 @@ components:
       required:
       - name
       - slug
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-        statusCode:
-          type: integer
+    CityDetail:
+      allOf:
+      - $ref: '#/components/schemas/City'
+      - type: object
+        properties:
+          population:
+            type: integer
+          timezone:
+            type: string
+          latitude:
+            type: number
+            format: double
+          longitude:
+            type: number
+            format: double
     CityListResponse:
       type: object
       properties:
@@ -118,6 +102,22 @@ components:
             $ref: '#/components/schemas/City'
         count:
           type: integer
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

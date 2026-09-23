@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Basetrip Cities Safety API
+  title: Basetrip Safety API
   description: The Basetrip API provides travel intelligence data including country and city information, travel phrases, safety ratings, visa requirements, cost of living data, and health advisories. Designed to help travel platforms differentiate their products and improve traveler experiences.
   version: 3.0.0
   contact:
@@ -47,15 +47,6 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-        statusCode:
-          type: integer
     SafetyInfo:
       type: object
       properties:
@@ -87,6 +78,15 @@ components:
         notes:
           type: string
           description: Additional safety notes
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Basetrip Cities Phrases API
+  title: Basetrip Phrases API
   description: The Basetrip API provides travel intelligence data including country and city information, travel phrases, safety ratings, visa requirements, cost of living data, and health advisories. Designed to help travel platforms differentiate their products and improve traveler experiences.
   version: 3.0.0
   contact:
@@ -51,26 +51,14 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    PhraseListResponse:
-      type: object
-      properties:
-        language:
-          type: string
-          description: Destination language code
-        phrases:
-          type: array
-          items:
-            $ref: '#/components/schemas/Phrase'
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-        statusCode:
-          type: integer
     Phrase:
       type: object
       properties:
@@ -86,13 +74,25 @@ components:
         phonetic:
           type: string
           description: Phonetic pronunciation guide
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
+    PhraseListResponse:
+      type: object
+      properties:
+        language:
+          type: string
+          description: Destination language code
+        phrases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Phrase'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
