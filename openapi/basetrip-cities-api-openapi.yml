@@ -63,21 +63,15 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    City:
+    ErrorResponse:
       type: object
       properties:
-        name:
+        error:
           type: string
-          description: City name
-        slug:
+        message:
           type: string
-          description: URL-friendly city slug
-        country:
-          type: string
-          description: Country alpha-2 code
-      required:
-      - name
-      - slug
+        statusCode:
+          type: integer
     CityDetail:
       allOf:
       - $ref: '#/components/schemas/City'
@@ -102,15 +96,21 @@ components:
             $ref: '#/components/schemas/City'
         count:
           type: integer
-    ErrorResponse:
+    City:
       type: object
       properties:
-        error:
+        name:
           type: string
-        message:
+          description: City name
+        slug:
           type: string
-        statusCode:
-          type: integer
+          description: URL-friendly city slug
+        country:
+          type: string
+          description: Country alpha-2 code
+      required:
+      - name
+      - slug
   responses:
     NotFound:
       description: Resource not found

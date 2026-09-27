@@ -59,6 +59,16 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
   schemas:
+    PhraseListResponse:
+      type: object
+      properties:
+        language:
+          type: string
+          description: Destination language code
+        phrases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Phrase'
     Phrase:
       type: object
       properties:
@@ -83,16 +93,6 @@ components:
           type: string
         statusCode:
           type: integer
-    PhraseListResponse:
-      type: object
-      properties:
-        language:
-          type: string
-          description: Destination language code
-        phrases:
-          type: array
-          items:
-            $ref: '#/components/schemas/Phrase'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
