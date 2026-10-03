@@ -63,6 +63,21 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    City:
+      type: object
+      properties:
+        name:
+          type: string
+          description: City name
+        slug:
+          type: string
+          description: URL-friendly city slug
+        country:
+          type: string
+          description: Country alpha-2 code
+      required:
+      - name
+      - slug
     ErrorResponse:
       type: object
       properties:
@@ -71,6 +86,15 @@ components:
         message:
           type: string
         statusCode:
+          type: integer
+    CityListResponse:
+      type: object
+      properties:
+        cities:
+          type: array
+          items:
+            $ref: '#/components/schemas/City'
+        count:
           type: integer
     CityDetail:
       allOf:
@@ -87,30 +111,6 @@ components:
           longitude:
             type: number
             format: double
-    CityListResponse:
-      type: object
-      properties:
-        cities:
-          type: array
-          items:
-            $ref: '#/components/schemas/City'
-        count:
-          type: integer
-    City:
-      type: object
-      properties:
-        name:
-          type: string
-          description: City name
-        slug:
-          type: string
-          description: URL-friendly city slug
-        country:
-          type: string
-          description: Country alpha-2 code
-      required:
-      - name
-      - slug
   responses:
     NotFound:
       description: Resource not found

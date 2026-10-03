@@ -120,14 +120,14 @@ components:
           type: integer
           description: Total number of countries
   responses:
-    Unauthorized:
-      description: Invalid or missing API key
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    NotFound:
-      description: Resource not found
+    Unauthorized:
+      description: Invalid or missing API key
       content:
         application/json:
           schema:
