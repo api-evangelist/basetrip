@@ -78,6 +78,21 @@ components:
       required:
       - name
       - slug
+    CityDetail:
+      allOf:
+      - $ref: '#/components/schemas/City'
+      - type: object
+        properties:
+          population:
+            type: integer
+          timezone:
+            type: string
+          latitude:
+            type: number
+            format: double
+          longitude:
+            type: number
+            format: double
     ErrorResponse:
       type: object
       properties:
@@ -96,21 +111,6 @@ components:
             $ref: '#/components/schemas/City'
         count:
           type: integer
-    CityDetail:
-      allOf:
-      - $ref: '#/components/schemas/City'
-      - type: object
-        properties:
-          population:
-            type: integer
-          timezone:
-            type: string
-          latitude:
-            type: number
-            format: double
-          longitude:
-            type: number
-            format: double
   responses:
     NotFound:
       description: Resource not found
