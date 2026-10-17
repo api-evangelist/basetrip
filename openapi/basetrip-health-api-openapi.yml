@@ -40,15 +40,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-        statusCode:
-          type: integer
     HealthInfo:
       type: object
       properties:
@@ -84,6 +75,15 @@ components:
           - Good
           - Limited
           - Very Limited
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
   responses:
     NotFound:
       description: Resource not found

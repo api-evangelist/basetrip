@@ -52,15 +52,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-        statusCode:
-          type: integer
     PhraseListResponse:
       type: object
       properties:
@@ -86,6 +77,15 @@ components:
         phonetic:
           type: string
           description: Phonetic pronunciation guide
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
   responses:
     NotFound:
       description: Resource not found

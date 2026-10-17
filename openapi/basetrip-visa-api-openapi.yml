@@ -46,15 +46,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-        statusCode:
-          type: integer
     VisaInfo:
       type: object
       properties:
@@ -77,6 +68,15 @@ components:
           description: Maximum stay in days
         notes:
           type: string
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
   responses:
     NotFound:
       description: Resource not found

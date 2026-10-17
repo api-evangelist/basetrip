@@ -78,6 +78,15 @@ components:
       required:
       - name
       - slug
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
     CityDetail:
       allOf:
       - $ref: '#/components/schemas/City'
@@ -93,15 +102,6 @@ components:
           longitude:
             type: number
             format: double
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-        statusCode:
-          type: integer
     CityListResponse:
       type: object
       properties:
