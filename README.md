@@ -1,4 +1,4 @@
-# Basetrip (basetrip)
+# Basetrip
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,65 +66,201 @@
 
 Basetrip is a travel intelligence platform providing APIs for country and city data, travel phrases, safety ratings, visa requirements, cost of living estimates, and health advisories. Designed to help travel apps, booking platforms, and trip planning tools differentiate their products and improve traveler experiences. The Basetrip API v3 uses API key authentication and returns JSON.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/basetrip/refs/heads/main/apis.yml)
+**Areas:** Cities · Countries · Health · Safety · Travel · Visa
 
-## Tags
+## Basetrip on APIs.io
 
-- Cities
-- Countries
-- Health
-- Safety
-- Travel
-- Visa
+Everything profiled for Basetrip is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/basetrip/](https://apis.io/providers/basetrip/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2024-11-13
-- **Modified:** 2026-05-19
+- [Basetrip Cities API](https://apis.io/apis/basetrip/basetrip-cities-api/) — The Cities API from Basetrip — 2 operation(s) for cities.
+- [Basetrip Cost API](https://apis.io/apis/basetrip/basetrip-cost-api/) — The Cost API from Basetrip — 1 operation(s) for cost.
+- [Basetrip Countries API](https://apis.io/apis/basetrip/basetrip-countries-api/) — The Countries API from Basetrip — 2 operation(s) for countries.
+- [Basetrip Health API](https://apis.io/apis/basetrip/basetrip-health-api/) — The Health API from Basetrip — 1 operation(s) for health.
+- [Basetrip Phrases API](https://apis.io/apis/basetrip/basetrip-phrases-api/) — The Phrases API from Basetrip — 1 operation(s) for phrases.
+- [Basetrip Safety API](https://apis.io/apis/basetrip/basetrip-safety-api/) — The Safety API from Basetrip — 1 operation(s) for safety.
+- [Basetrip Visa API](https://apis.io/apis/basetrip/basetrip-visa-api/) — The Visa API from Basetrip — 1 operation(s) for visa.
 
-## APIs
+### Published properties
 
-### Basetrip API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Basetrip API provides travel intelligence data including country details, city lists, travel phrases, safety ratings, visa requirements, cost estimates, and health advisories. Uses API key authentication via X-API-Key header.
+#### Agentic access (1)
 
-- **Human URL:** [https://www.thebasetrip.com/en/documentation/v3](https://www.thebasetrip.com/en/documentation/v3)
-- **Base URL:** `https://api.thebasetrip.com/v3`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Basetrip Agentic Access](https://apis.io/agentic-access/basetrip/basetrip-agentic-access/)
 
-- Cities
-- Countries
-- Health
-- Phrases
-- Safety
-- Travel
-- Visa
+#### JSON Schema (13)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://www.thebasetrip.com/en/documentation/v3)
-- [OpenAPI](openapi/basetrip-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/basetrip-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/basetrip-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [City](https://apis.io/schemas/basetrip/city/)
+- [CityDetail](https://apis.io/schemas/basetrip/citydetail/)
+- [CityListResponse](https://apis.io/schemas/basetrip/citylistresponse/)
+- [CostInfo](https://apis.io/schemas/basetrip/costinfo/)
+- [Country](https://apis.io/schemas/basetrip/country/)
+- [CountryDetail](https://apis.io/schemas/basetrip/countrydetail/)
+- [CountryListResponse](https://apis.io/schemas/basetrip/countrylistresponse/)
+- [ErrorResponse](https://apis.io/schemas/basetrip/errorresponse/)
+- [HealthInfo](https://apis.io/schemas/basetrip/healthinfo/)
+- [Phrase](https://apis.io/schemas/basetrip/phrase/)
+- [PhraseListResponse](https://apis.io/schemas/basetrip/phraselistresponse/)
+- [SafetyInfo](https://apis.io/schemas/basetrip/safetyinfo/)
+- [VisaInfo](https://apis.io/schemas/basetrip/visainfo/)
 
-## Common Properties
+#### JSON Structure (13)
 
-- [LinkedIn](https://www.linkedin.com/company/the-basetrip)
+Data models expressed in JSON Structure.
+
+- [City](https://apis.io/json-structure/basetrip/city/)
+- [Citydetail](https://apis.io/json-structure/basetrip/citydetail/)
+- [Citylistresponse](https://apis.io/json-structure/basetrip/citylistresponse/)
+- [Costinfo](https://apis.io/json-structure/basetrip/costinfo/)
+- [Country](https://apis.io/json-structure/basetrip/country/)
+- [Countrydetail](https://apis.io/json-structure/basetrip/countrydetail/)
+- [Countrylistresponse](https://apis.io/json-structure/basetrip/countrylistresponse/)
+- [Errorresponse](https://apis.io/json-structure/basetrip/errorresponse/)
+- [Healthinfo](https://apis.io/json-structure/basetrip/healthinfo/)
+- [Phrase](https://apis.io/json-structure/basetrip/phrase/)
+- [Phraselistresponse](https://apis.io/json-structure/basetrip/phraselistresponse/)
+- [Safetyinfo](https://apis.io/json-structure/basetrip/safetyinfo/)
+- [Visainfo](https://apis.io/json-structure/basetrip/visainfo/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Basetrip Context](https://apis.io/jsonld/basetrip/basetrip-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Basetrip Vocabulary](https://apis.io/vocabularies/basetrip/basetrip-vocabulary/)
+
+#### Examples (13)
+
+Example requests and responses.
+
+- [City](https://apis.io/examples/basetrip/city/)
+- [Citydetail](https://apis.io/examples/basetrip/citydetail/)
+- [Citylistresponse](https://apis.io/examples/basetrip/citylistresponse/)
+- [Costinfo](https://apis.io/examples/basetrip/costinfo/)
+- [Country](https://apis.io/examples/basetrip/country/)
+- [Countrydetail](https://apis.io/examples/basetrip/countrydetail/)
+- [Countrylistresponse](https://apis.io/examples/basetrip/countrylistresponse/)
+- [Errorresponse](https://apis.io/examples/basetrip/errorresponse/)
+- [Healthinfo](https://apis.io/examples/basetrip/healthinfo/)
+- [Phrase](https://apis.io/examples/basetrip/phrase/)
+- [Phraselistresponse](https://apis.io/examples/basetrip/phraselistresponse/)
+- [Safetyinfo](https://apis.io/examples/basetrip/safetyinfo/)
+- [Visainfo](https://apis.io/examples/basetrip/visainfo/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [Basetrip API](https://apis.io/collections/basetrip/open-basetrip-api/)
+- [Basetrip Cities API](https://apis.io/collections/basetrip/open-basetrip-cities-api/)
+- [Basetrip Cities Cost API](https://apis.io/collections/basetrip/open-basetrip-cost-api/)
+- [Basetrip Cities Countries API](https://apis.io/collections/basetrip/open-basetrip-countries-api/)
+- [Basetrip Cities Health API](https://apis.io/collections/basetrip/open-basetrip-health-api/)
+- [Basetrip Cities Phrases API](https://apis.io/collections/basetrip/open-basetrip-phrases-api/)
+- [Basetrip Cities Safety API](https://apis.io/collections/basetrip/open-basetrip-safety-api/)
+- [Basetrip Cities Visa API](https://apis.io/collections/basetrip/open-basetrip-visa-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Basetrip — jsonschema rules](https://apis.io/rules/basetrip/basetrip-jsonschema-spectral-rules/)
+- [Basetrip API Rules](https://apis.io/rules/basetrip/basetrip-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Basetrip Authentication](https://apis.io/security/basetrip/basetrip-authentication/)
+- [Basetrip Domain Security](https://apis.io/security/basetrip/basetrip-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Basetrip Plans Pricing](https://apis.io/plans/basetrip/basetrip-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Basetrip Rate Limits](https://apis.io/rate-limits/basetrip/basetrip-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Basetrip Finops](https://apis.io/finops/basetrip/basetrip-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.thebasetrip.com/)
 - [Documentation](https://www.thebasetrip.com/en/documentation/v3)
-- [Sign Up](https://www.thebasetrip.com/en/sign_up)
 - [Pricing](https://www.thebasetrip.com/en/pricing)
-- [Spectral Rules](rules/basetrip-spectral-rules.yml)
-- [Vocabulary](vocabulary/basetrip-vocabulary.yaml)
-- [JSON-LD](json-ld/basetrip-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Integrations](https://www.thebasetrip.com/integrations)
-- [L L Ms Txt](https://api.thebasetrip.com/llms.txt)
+- [Blog](https://www.thebasetrip.com/blog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.3** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 57.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 31.6 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.3** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/basetrip/](https://apis.io/providers/basetrip/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Basetrip: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/basetrip/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
